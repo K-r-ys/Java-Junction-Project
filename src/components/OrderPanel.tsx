@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./OrderPanel.css";
+import "./orderpanel.css";
 
 interface Order {
   name: string;
