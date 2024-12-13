@@ -1,0 +1,42 @@
+header {
+  background-color: #f4ecd8;
+  padding: 20px;
+  text-align: center;
+  color: #5a3427;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dynamic-part {
+  display: block;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  margin-left: 8px;
+}
+
+.transitioning {
+  transform: translateY(-100%);
+}
+
+header h1 {
+  font-size: 36px;
+  color: #5a3427;
+  font-family: "Roboto", sans-serif;
+  margin: 10px 0;
+  text-align: center;
+}
