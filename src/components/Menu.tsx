@@ -19,37 +19,37 @@ const Menu: React.FC = () => {
       id: 1,
       name: "Latte",
       price: 4.5,
-      image: "/src/components/Images/Latte.jpeg",
+      image: "/Images/Latte.jpeg",
     },
     {
       id: 2,
       name: "Cappuccino",
       price: 4.0,
-      image: "/src/components/Images/Cappuccino.jpeg",
+      image: "/Images/Cappuccino.jpeg",
     },
     {
       id: 3,
       name: "Iced Coffee",
       price: 3.5,
-      image: "/src/components/Images/Iced coffee.jpeg",
+      image: "/Images/Iced coffee.jpeg",
     },
     {
       id: 4,
       name: "Macchiato",
       price: 5.0,
-      image: "/src/components/Images/Macchiato.jpeg",
+      image: "/Images/Macchiato.jpeg",
     },
     {
       id: 5,
       name: "Flat White",
       price: 4.7,
-      image: "/src/components/Images/Flat white.jpeg",
+      image: "/Images/Flat white.jpeg",
     },
     {
       id: 6,
       name: "Espresso",
       price: 3.0,
-      image: "/src/components/Images/Espresso.jpeg",
+      image: "/Images/Espresso.jpeg",
     },
   ];
 
