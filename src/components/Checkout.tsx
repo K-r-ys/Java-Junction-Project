@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Checkout.css";
 
 interface Order {
@@ -9,6 +9,7 @@ interface Order {
 
 const Checkout: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate(); // Replace useHistory with useNavigate
   const orders: Order[] = location.state?.orders || [];
 
   return (
@@ -20,7 +21,7 @@ const Checkout: React.FC = () => {
           <ul>
             {orders.map((order: Order, index: number) => (
               <li key={index}>
-                {order.name}: ${order.price.toFixed(2)}{" "}
+                {order.name}: ${order.price.toFixed(2)}
               </li>
             ))}
           </ul>
@@ -28,13 +29,20 @@ const Checkout: React.FC = () => {
             Total: $
             {orders
               .reduce((total: number, order: Order) => total + order.price, 0)
-              .toFixed(2)}{" "}
+              .toFixed(2)}
           </h3>
           <p>Thank you for your order!</p>
         </div>
       ) : (
         <p>No orders to display.</p>
       )}
+      <button onClick={() => navigate(-1)} className="back-button">
+        ← Back
+      </button>
+
+      <button onClick={() => navigate("/")} className="home-button">
+        Home
+      </button>
     </div>
   );
 };
