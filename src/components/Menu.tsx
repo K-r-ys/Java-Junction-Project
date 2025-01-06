@@ -60,7 +60,7 @@ const Menu: React.FC = () => {
 
     setTimeout(() => {
       setMessage(null);
-    }, 3000);
+    }, 2000);
   };
 
   const handleViewOrders = () => {
