@@ -41,7 +41,7 @@ li {
   color: rgb(242, 242, 242);
 }
 body {
-  background-image: url("./Images/Pic3.jpeg");
+  background-image: url("/Images/Pic3.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
