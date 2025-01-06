@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Menu.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 interface MenuItem {
   id: number;
@@ -79,10 +80,14 @@ const Menu: React.FC = () => {
           <div className="coffee-price">${item.price.toFixed(2)}</div>
         </div>
       ))}
-      <button onClick={handleViewOrders} className="view-orders-button">
-        View Your Order
-      </button>
-      {message && <div className="order-message">{message}</div>}
+
+      {message && (
+        <div className={`order-message ${message ? "visible" : ""}`}>
+          {message}
+        </div>
+      )}
+
+      <Footer message={message} onViewOrders={handleViewOrders} />
     </div>
   );
 };

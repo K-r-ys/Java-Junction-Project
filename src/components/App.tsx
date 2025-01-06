@@ -4,6 +4,7 @@ import Menu from "./Menu";
 import OrderPanel from "./OrderPanel";
 import Checkout from "./Checkout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./Footer";
 
 interface Order {
   name: string;
