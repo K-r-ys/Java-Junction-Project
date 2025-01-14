@@ -10,14 +10,14 @@
   gap: 20px; /* Spacing between panels */
   overflow-x: auto; /* Enable horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling behavior */
-  padding: 10px 0;
+  padding: 10px 5;
 }
 
 .menu-panel {
   display: grid; /* Grid layout for items in each panel */
   grid-template-columns: repeat(
     auto-fit,
-    minmax(200px, 1fr)
+    minmax(150px, 1fr)
   ); /* Responsive grid */
   gap: 20px; /* Spacing between items */
   justify-items: center; /* Center-align items horizontally */
