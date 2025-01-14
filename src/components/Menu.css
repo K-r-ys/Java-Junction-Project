@@ -76,3 +76,21 @@
 .order-message.visible {
   opacity: 1; /* Show when visible */
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .menu-panels {
+    overflow-x: auto; /* Ensure horizontal scrolling is still enabled */
+  }
+
+  .menu-panel {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(150px, 1fr)
+    ); /* Adjust grid for smaller screens */
+  }
+
+  .coffee-card {
+    max-width: 100%; /* Make cards responsive */
+  }
+}
