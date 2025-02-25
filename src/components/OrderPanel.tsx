@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+
 import "./orderpanel.css";
 
 interface Order {
@@ -14,9 +17,6 @@ const OrderPanel: React.FC = () => {
 
   const [orders, setOrders] = useState<Order[]>(initialOrders);
 
-  const calculateTotal = () =>
-    orders.reduce((total, order) => total + order.price, 0);
-
   const handleDelete = (index: number) => {
     const updatedOrders = orders.filter((_, i) => i !== index);
     setOrders(updatedOrders);
@@ -29,22 +29,27 @@ const OrderPanel: React.FC = () => {
   return (
     <div>
       <button onClick={() => navigate(-1)} className="back-button">
-        ← Back
+        <FaArrowLeft />
       </button>
-      <h1>Order Summary</h1>
+
+      <h1 className="order-summary-title">Order Summary</h1>
       <ul>
         {orders.map((order, index) => (
-          <li key={index}>
-            {order.name}: ${order.price}
+          <li key={index} className="order-list-item">
+            <div className="order-info">
+              <span className="order-name">{order.name}</span>
+              <span className="order-price">${order.price}</span>
+            </div>
+
             <button
               onClick={() => handleDelete(index)}
               className="delete-button"
             >
-              🗑️
+              <FaTrash />
             </button>
           </li>
         ))}
-      </ul>{" "}
+      </ul>
       <button className="checkout-button" onClick={handleCheckout}>
         Confirm
       </button>

@@ -15,16 +15,11 @@ const Menu: React.FC = () => {
   const [message, setMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  // Default Coffee Menu
-  const espressotMenu: MenuItem[] = [
+  // Espresso Menu
+  const espressoMenu: MenuItem[] = [
     { id: 1, name: "Latte", price: 4.5, image: "/Images/Latte.jpeg" },
     { id: 2, name: "Cappuccino", price: 4.0, image: "/Images/Cappuccino.jpeg" },
-    {
-      id: 3,
-      name: "Mocha",
-      price: 3.5,
-      image: "/Images/Mocha.jpeg",
-    },
+    { id: 3, name: "Mocha", price: 3.5, image: "/Images/Mocha.jpeg" },
     { id: 4, name: "Macchiato", price: 5.0, image: "/Images/Macchiato.jpeg" },
     { id: 5, name: "Flat White", price: 4.7, image: "/Images/Flat white.jpeg" },
     { id: 6, name: "Espresso", price: 3.0, image: "/Images/Espresso.jpeg" },
@@ -35,21 +30,16 @@ const Menu: React.FC = () => {
     { id: 7, name: "Cold Brew", price: 4.5, image: "/Images/Cold brew.jpeg" },
     { id: 8, name: "Frappe", price: 5.0, image: "/Images/Frappe.jpeg" },
     { id: 9, name: "Iced Latte", price: 4.8, image: "/Images/Iced latte.jpeg" },
-    {
-      id: 10,
-      name: "Nitro Coffee",
-      price: 5.5,
-      image: "/Images/Nitro.jpeg",
-    },
+    { id: 10, name: "Nitro Coffee", price: 5.5, image: "/Images/Nitro.jpeg" },
     {
       id: 11,
-      name: "Iced Caramel Macchiato ",
+      name: "Iced Caramel Macchiato",
       price: 5.5,
       image: "/Images/Iced caramel macchiato.jpeg",
     },
     {
       id: 12,
-      name: "Iced Mocha ",
+      name: "Iced Mocha",
       price: 5.5,
       image: "/Images/Iced mocha.jpeg",
     },
@@ -98,10 +88,7 @@ const Menu: React.FC = () => {
   const handleOrder = (item: MenuItem) => {
     setOrders([...orders, item]);
     setMessage(`Order placed: ${item.name}`);
-
-    setTimeout(() => {
-      setMessage(null);
-    }, 2000);
+    setTimeout(() => setMessage(null), 2000);
   };
 
   const handleViewOrders = () => {
@@ -110,52 +97,75 @@ const Menu: React.FC = () => {
 
   return (
     <div className="menu-container">
-      <div className="menu-panels">
-        {/* Espresso Menu */}
-        <div className="menu-panel">
-          {espressotMenu.map((item) => (
-            <div
-              key={item.id}
-              className="coffee-card"
-              onClick={() => handleOrder(item)}
-            >
-              <img src={item.image} alt={item.name} className="coffee-image" />
-              <div className="coffee-name">{item.name}</div>
-              <div className="coffee-price">${item.price.toFixed(2)}</div>
-            </div>
-          ))}
+      {/* Scrollable menu content */}
+      <div className="menu-scroll">
+        {/* Espresso Section */}
+        <div className="menu-section">
+          <h2 className="menu-heading">Espresso</h2>
+          <div className="menu-panel">
+            {espressoMenu.map((item) => (
+              <div
+                key={item.id}
+                className="coffee-card"
+                onClick={() => handleOrder(item)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="coffee-image"
+                />
+                <div className="coffee-name">{item.name}</div>
+                <div className="coffee-price">${item.price.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Cold Coffee Menu */}
-        <div className="menu-panel">
-          {coldCoffeeMenu.map((item) => (
-            <div
-              key={item.id}
-              className="coffee-card"
-              onClick={() => handleOrder(item)}
-            >
-              <img src={item.image} alt={item.name} className="coffee-image" />
-              <div className="coffee-name">{item.name}</div>
-              <div className="coffee-price">${item.price.toFixed(2)}</div>
-            </div>
-          ))}
+        {/* Cold Brews Section */}
+        <div className="menu-section">
+          <h2 className="menu-heading">Cold Coffee</h2>
+          <div className="menu-panel">
+            {coldCoffeeMenu.map((item) => (
+              <div
+                key={item.id}
+                className="coffee-card"
+                onClick={() => handleOrder(item)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="coffee-image"
+                />
+                <div className="coffee-name">{item.name}</div>
+                <div className="coffee-price">${item.price.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Regional Coffee Menu */}
-        <div className="menu-panel">
-          {regionalCoffeeMenu.map((item) => (
-            <div
-              key={item.id}
-              className="coffee-card"
-              onClick={() => handleOrder(item)}
-            >
-              <img src={item.image} alt={item.name} className="coffee-image" />
-              <div className="coffee-name">{item.name}</div>
-              <div className="coffee-price">${item.price.toFixed(2)}</div>
-            </div>
-          ))}
+        {/* Regional Section */}
+        <div className="menu-section">
+          <h2 className="menu-heading">Regional</h2>
+          <div className="menu-panel">
+            {regionalCoffeeMenu.map((item) => (
+              <div
+                key={item.id}
+                className="coffee-card"
+                onClick={() => handleOrder(item)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="coffee-image"
+                />
+                <div className="coffee-name">{item.name}</div>
+                <div className="coffee-price">${item.price.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
       {message && (
         <div className={`order-message ${message ? "visible" : ""}`}>
           {message}

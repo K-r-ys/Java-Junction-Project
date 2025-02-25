@@ -1,50 +1,32 @@
+/* Reset some defaults */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 100%;
-  font-family: "Senja Mentari";
+/* Global base styles for html and body */
+html,
+body {
+  font-family: "Senja Mentari", sans-serif;
   background-color: #f5f5f5e8;
   color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+  height: 100%;
+  width: 100%;
 }
 
-h1 {
-  font-size: 5rem;
-  color: #000000;
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  font-size: 1.7rem;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.active {
-  background-color: #f4f4f4;
-  color: rgb(242, 242, 242);
-}
+/* Global background image */
 body {
   background-image: url("/Images/Pic3.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
+}
+
+/* Ensure the root container fills the viewport */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

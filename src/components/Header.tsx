@@ -25,7 +25,14 @@ const Header: React.FC<HeaderProps> = ({ listGroup }) => {
 
   return (
     <header>
-      <h1>Espresso Lane</h1>
+      <h1>
+        Espresso Lane
+        <img
+          src="/Images/Logo.png"
+          alt="Espresso Lane Logo"
+          className="header-logo"
+        />
+      </h1>
       <p>
         Get your{" "}
         <span

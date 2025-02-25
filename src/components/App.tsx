@@ -4,7 +4,6 @@ import Menu from "./Menu";
 import OrderPanel from "./OrderPanel";
 import Checkout from "./Checkout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./Footer";
 
 interface Order {
   name: string;
@@ -12,28 +11,62 @@ interface Order {
 }
 
 const App: React.FC = () => {
-  const coffeeMenu = ["Latte", "Cappuccino", "Iced Coffee", "Macchiato"];
+  // Define individual coffee menus
+  const espressoMenu = [
+    "Latte",
+    "Cappuccino",
+    "Mocha",
+    "Macchiato",
+    "Flat White",
+    "Espresso",
+  ];
+  const coldCoffeeMenu = [
+    "Cold Brew",
+    "Frappe",
+    "Iced Latte",
+    "Nitro Coffee",
+    "Iced Caramel Macchiato",
+    "Iced Mocha",
+  ];
+  const regionalCoffeeMenu = [
+    "Turkish Coffee",
+    "Ethiopian Coffee",
+    "Italian Affogato",
+    "Vietnamese Egg Coffee",
+    "Kopi Luwak (Indonesia)",
+    "Cafe De Olla (Mexico)",
+  ];
+
+  // Combine all coffee arrays into one list
+  const allCoffees = [
+    ...espressoMenu,
+    ...coldCoffeeMenu,
+    ...regionalCoffeeMenu,
+  ];
+
   const orders: Order[] = [
     { name: "Latte", price: 150 },
     { name: "Macchiato", price: 200 },
   ];
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/checkout" element={<Checkout />} />
-        <Route
-          path="/"
-          element={
-            <>
-              <Header listGroup={coffeeMenu} />
-              <Menu />
-            </>
-          }
-        />
-        <Route path="/order-panel" element={<OrderPanel />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="app-container">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header listGroup={allCoffees} />
+                <Menu />
+              </>
+            }
+          />
+          <Route path="/order-panel" element={<OrderPanel />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 };
 

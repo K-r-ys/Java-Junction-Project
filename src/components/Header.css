@@ -4,10 +4,13 @@ header {
   text-align: center;
   color: #5a3427;
   font-family: "Roboto", sans-serif;
-  position: relative;
-  max-width: 1200px;
-  margin: 60px auto 0;
+  position: fixed; /* Pin to top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Stretch full width */
+  z-index: 1000; /* Keep on top */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Removed margin: 60px auto 0; so header doesn't push content down */
 }
 
 header p {
@@ -39,4 +42,10 @@ header h1 {
   font-family: "Roboto", sans-serif;
   margin: 10px 0;
   text-align: center;
+}
+.header-logo {
+  height: 40px; /* Adjust size as needed */
+  width: auto; /* Maintain aspect ratio */
+  margin-left: 10px; /* Space between text and logo */
+  vertical-align: middle; /* Align with text */
 }

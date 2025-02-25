@@ -1,96 +1,101 @@
+/* Container for the menu content */
 .menu-container {
   width: 100%;
   padding: 20px;
+  padding-top: 160px; /* Push content down to avoid fixed header overlap */
   text-align: center;
-  background-color: #f8f8f8; /* Match original */
+  background-color: #f8f8f8;
+  /* Removed overflow: hidden; so footer isn’t clipped */
 }
 
-.menu-panels {
-  display: flex; /* Horizontal layout for panels */
-  gap: 20px; /* Spacing between panels */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  scroll-behavior: smooth; /* Smooth scrolling behavior */
-  padding: 10px 5;
+/* Scrollable container for menu content */
+.menu-scroll {
+  height: calc(100vh - 80px - 60px); /* 80px for header, 60px for footer */
+  overflow-y: auto;
+  padding-right: 10px; /* Space for the scrollbar */
 }
 
+/* Each menu section with a heading */
+.menu-section {
+  margin-bottom: 40px;
+}
+
+.menu-heading {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Grid layout for the coffee cards */
 .menu-panel {
-  display: grid; /* Grid layout for items in each panel */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(150px, 1fr)
-  ); /* Responsive grid */
-  gap: 20px; /* Spacing between items */
-  justify-items: center; /* Center-align items horizontally */
-  min-width: 100%; /* Ensure each panel takes full width for scrolling */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
+/* Coffee card styles */
 .coffee-card {
   background: #fff;
-  border-radius: 10px; /* Match original */
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
-  transition: transform 0.3s ease; /* Add hover effect */
-  max-width: 220px; /* Ensure cards are uniform in size */
+  transition: transform 0.3s ease;
+  max-width: 220px;
 }
 
 .coffee-card:hover {
-  transform: translateY(-5px); /* Match original hover effect */
+  transform: translateY(-5px);
 }
 
 .coffee-image {
   width: 100%;
-  height: 150px; /* Match original */
+  height: 150px;
   object-fit: cover;
-  border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+  border-radius: 10px 10px 0 0;
 }
 
 .coffee-name {
-  font-size: 1.2em; /* Match original */
+  font-size: 1.2em;
   margin-top: 10px;
   font-weight: bold;
-  color: #333; /* Match original */
+  color: #333;
 }
 
 .coffee-price {
-  font-size: 1em; /* Match original */
-  color: #6f4e37; /* Match original */
+  font-size: 1em;
+  color: #6f4e37;
   margin-bottom: 10px;
 }
 
+/* Order message popup */
 .order-message {
-  position: fixed; /* Position it fixed to the viewport */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for element's own width/height */
-  background-color: rgba(139, 91, 41, 0.8); /* Adjusted for transparency */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(139, 91, 41, 0.8);
   color: #fff8e1;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure it appears above other content */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.5s ease; /* Transition for opacity */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .order-message.visible {
-  opacity: 1; /* Show when visible */
+  opacity: 1;
 }
 
-/* Media Queries for Responsive Design */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .menu-panels {
-    overflow-x: auto; /* Ensure horizontal scrolling is still enabled */
-  }
-
   .menu-panel {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(150px, 1fr)
-    ); /* Adjust grid for smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
-
   .coffee-card {
-    max-width: 100%; /* Make cards responsive */
+    max-width: 100%;
   }
 }
